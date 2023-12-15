@@ -25,7 +25,7 @@ class _ProductCategoriesState extends State<ProductCategories> {
     Category('Фрукты', 'assets/images/category.png'),
     Category('Фрукты', 'assets/images/category.png'),
     Category('Фрукты', 'assets/images/category.png'),
-    Category('Фрукты', 'assets/images/category.png'),
+    // Category('Фрукты', 'assets/images/category.png'),
   ];
 
   int _selectedIndex = 0;
@@ -48,6 +48,7 @@ class _ProductCategoriesState extends State<ProductCategories> {
           Expanded(
             flex: 1,
             child: ListView.builder(
+              padding: EdgeInsets.all(16.w),
               itemCount: (items.length / 2).ceil(),
               // Ensure the correct number of rows
               itemBuilder: (context, rowIndex) {
@@ -69,11 +70,10 @@ class _ProductCategoriesState extends State<ProductCategories> {
                       for (final item in rowItems)
                         ClipRRect(
                           borderRadius: BorderRadius.circular(25),
-                          child: Card(
-                            color: Colors.white,
-                            child: SizedBox(
-                              // width: 166.w,
-                              // height: 180.h,
+                          child: SizedBox(
+                            width: 166.w,
+                            child: Card(
+                              color: Colors.white,
                               child: Stack(
                                 alignment: Alignment.bottomLeft,
                                 children: [

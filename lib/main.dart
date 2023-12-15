@@ -1,8 +1,8 @@
 /*External dependecies */
-import 'package:ecomarket/screens/product_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
+import 'package:ecomarket/screens/product_categories.dart';
 import 'package:ecomarket/theme.dart';
 
 void main() {
