@@ -22,7 +22,7 @@ final ThemeData myTheme = ThemeData(
       color: Colors.black,
     ),
     displayMedium: TextStyle(
-      fontFamily: 'TTNNormsPro-Bold',
+      fontFamily: 'TTNormsPro-Bold',
       fontSize: 20.sp,
       color: const Color(0xFF75DB1B),
     ),

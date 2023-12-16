@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
 import 'package:ecomarket/screens/product_categories.dart';
+import 'package:ecomarket/screens/product_list.dart';
 import 'package:ecomarket/theme.dart';
 
 void main() {
@@ -23,7 +24,12 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Flutter Demo',
             theme: myTheme,
-            home: const ProductCategories(),
+            initialRoute: '/',
+            // home: const ProductCategories(),
+            routes: {
+              '/': (context) => const ProductCategories(),
+              '/productList': (context) => const ProductList()
+            },
           );
         });
   }
