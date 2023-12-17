@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             theme: myTheme,
             initialRoute: '/',
-            // home: const ProductCategories(),
             routes: {
               '/': (context) => const ProductCategories(),
               '/productList': (context) => const ProductList()

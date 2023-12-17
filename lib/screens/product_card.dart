@@ -6,7 +6,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(children: []),
+      child: Stack(children: [Center(child: Text('Card widget'))]),
     );
   }
 }

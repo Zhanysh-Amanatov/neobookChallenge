@@ -54,59 +54,50 @@ class _ProductListState extends State<ProductList> {
 
     Future<List<Product>> getProducts(String categoryName) async {
       String url = 'https://neobook.online/ecobak/product-list';
-      // final response = await http.get(Uri.parse(url));
+      final response = await http.get(Uri.parse(url));
       // var responseData = json.decode(utf8.decode(response.bodyBytes));
 
-      // try {
-      final response = await http.get(Uri.parse(url));
+      try {
+        // final response = await http.get(Uri.parse(url));
 
-      if (response.statusCode == 200) {
-        List<dynamic> data = json.decode(response.body);
-        if (data.isNotEmpty && data[0] is List) {
-          List<Product> products = (data[0] as List)
-              .map((json) => Product.fromJson(json))
-              .where((product) => product.category == categoryName)
-              .toList();
+        if (response.statusCode == 200) {
+          List<dynamic> data = json.decode(response.body);
+          if (data.isNotEmpty && data[0] is List) {
+            List<Product> products = (data[0] as List)
+                .map((json) => Product.fromJson(json))
+                // .where((product) => product.category == categoryName)
+                .toList();
 
-          return products;
+            return products;
+          } else {
+            throw Exception('Invalid API response format');
+          }
         } else {
-          throw Exception('Invalid API response format');
+          throw Exception('Failed to load products');
         }
-        List<Product> products = data
-            .map((json) => Product.fromJson(json))
-            .where((product) =>
-                // product.category != null &&
-                product.category == categoryName)
-            .toList();
-        print('API Response: $data');
-
-        return products;
-      } else {
-        throw Exception('Failed to load products');
+      } catch (error) {
+        throw Exception('Error: $error');
       }
-      // } catch (error) {
-      // throw Exception('Error: $error');
-      // }
 
-      // List<Product> categories = [];
-      // if (response.statusCode == 200) {
-      // for (var singleProduct in responseData) {
-      //   Product product = Product(
-      //     id: singleProduct['id'],
-      //     title: singleProduct['title'],
-      //     description: singleProduct['description'],
-      //     category: singleProduct['category'],
-      //     image: singleProduct['image'],
-      //     quantity: singleProduct['quantity'],
-      //     price: singleProduct['price'],
-      //   );
+      //   List<Product> categories = [];
+      //   if (response.statusCode == 200) {
+      //   for (var singleProduct in responseData) {
+      //     Product product = Product(
+      //       id: singleProduct['id'],
+      //       title: singleProduct['title'],
+      //       description: singleProduct['description'],
+      //       category: singleProduct['category'],
+      //       image: singleProduct['image'],
+      //       quantity: singleProduct['quantity'],
+      //       price: singleProduct['price'],
+      //     );
 
-      //   categories.add(product);
-      // }
-      //   } else {
-      //     throw Exception('Failed to load data');
+      //     categories.add(product);
       //   }
-      //   return categories;
+      //     } else {
+      //       throw Exception('Failed to load data');
+      //     }
+      //     return categories;
     }
 
     return Scaffold(
