@@ -2,7 +2,6 @@
 /*External dependencies */
 import 'dart:convert';
 import 'package:ecomarket/screens/product_card.dart';
-import 'package:ecomarket/screens/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
@@ -28,25 +27,6 @@ class ProductCategories extends StatefulWidget {
 
 class _ProductCategoriesState extends State<ProductCategories> {
   int _currentindex = 0;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _loadScreen();
-  // }
-
-  // void _loadScreen() {
-  //   switch (_currentindex) {
-  //     case 0:
-  //       return setState(() {
-  //         _currentWidget = const ProductCategories();
-  //       });
-  //     case 1:
-  //       return setState(() {
-  //         _currentWidget = const ProductList();
-  //       });
-  //   }
-  // }
 
   Future<List<Category>> getCategories() async {
     String url = 'https://neobook.online/ecobak/product-category-list/';
@@ -147,7 +127,7 @@ class _ProductCategoriesState extends State<ProductCategories> {
                         context,
                         '/productList',
                         arguments: {
-                          'categoryId': '${snapshot.data![index].name}'
+                          'categoryName': '${snapshot.data![index].name}'
                         },
                       );
                     },
