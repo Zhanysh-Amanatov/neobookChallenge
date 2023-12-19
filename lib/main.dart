@@ -1,9 +1,10 @@
 /*External dependecies */
+import 'package:ecomarket/screens/products_list/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
-import 'package:ecomarket/screens/product_categories.dart';
-import 'package:ecomarket/screens/product_list.dart';
+import 'package:ecomarket/screens/product_categories_screen.dart';
+import 'package:ecomarket/screens/products_list/product_list_screen.dart';
 import 'package:ecomarket/theme.dart';
 
 void main() {
