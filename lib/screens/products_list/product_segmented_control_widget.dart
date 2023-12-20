@@ -10,23 +10,21 @@ import 'package:http/http.dart' as http;
 /*Local dependencies */
 import '../data.dart';
 
-class SegmentedControlWidget extends StatefulWidget {
-  // final List<String> values;
+class ProductSegmentedControlWidget extends StatefulWidget {
   final int? initialPosition;
-  // final Function(int index) onSelected;
 
-  const SegmentedControlWidget({
+  const ProductSegmentedControlWidget({
     super.key,
-    // required this.values,
-    // required this.onSelected,
     this.initialPosition,
   });
 
   @override
-  State<SegmentedControlWidget> createState() => _SegmentedControlWidgetState();
+  State<ProductSegmentedControlWidget> createState() =>
+      _ProductSegmentedControlWidgetState();
 }
 
-class _SegmentedControlWidgetState extends State<SegmentedControlWidget> {
+class _ProductSegmentedControlWidgetState
+    extends State<ProductSegmentedControlWidget> {
   late String current;
   late List<String> productCategories;
   List<dynamic> displayedProducts = [];
@@ -79,12 +77,6 @@ class _SegmentedControlWidgetState extends State<SegmentedControlWidget> {
                       setState(() {
                         current = productCategories[index];
                       });
-
-                      // if (productCategories[index] == 'Все') {
-                      //   await fetchProductCategories();
-                      // } else {
-                      //   await getProducts(productCategories[index]);
-                      // }
                     },
                     child: Container(
                       alignment: Alignment.center,

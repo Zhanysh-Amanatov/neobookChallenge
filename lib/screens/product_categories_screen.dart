@@ -1,6 +1,8 @@
 // ignore_for_file: must_be_immutable
 /*External dependencies */
 import 'dart:convert';
+import 'package:ecomarket/screens/cart_screen.dart';
+import 'package:ecomarket/screens/order_history_screen.dart';
 import 'package:ecomarket/screens/products_list/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -170,7 +172,9 @@ class _ProductCategoriesState extends State<ProductCategories> {
           ),
         );
       case 1:
-      // return const ProductCard(); // Use the appropriate widget for the second screen
+        return const CartScreen();
+      case 2:
+        return const OrderHistoryScreen();
       case 3:
         return const InfoScreen();
       default:

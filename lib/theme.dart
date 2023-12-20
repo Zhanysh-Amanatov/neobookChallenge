@@ -56,4 +56,15 @@ final ThemeData myTheme = ThemeData(
         fontSize: 16.sp,
         color: const Color(0xFFD2D1D5)),
   )),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+        fixedSize: Size(343.w, 55.h),
+        backgroundColor: const Color(0xFFF8F8F8),
+        foregroundColor: const Color(0xFF1F1F1F),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        textStyle: TextStyle(
+          fontFamily: 'TTNormsPro-Medium',
+          fontSize: 16.sp,
+        )),
+  ),
 );

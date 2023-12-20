@@ -1,17 +1,29 @@
+/*External dependencies */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+/*Local dependencies */
+import 'package:ecomarket/screens/helpers.dart';
 
 class ProductDetailsBottomSheet extends StatelessWidget {
-  const ProductDetailsBottomSheet({super.key});
+  final String? image;
+  final String? title;
+  final String? price;
+  final String? description;
+  const ProductDetailsBottomSheet({
+    super.key,
+    this.image,
+    this.title,
+    this.price,
+    this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       expand: false,
-      initialChildSize:
-          0.6.h, // Initial height of the bottom sheet (half the screen)
-      minChildSize: 0.2, // Minimum height of the bottom sheet
-      maxChildSize: 0.9, // Maximum height of the bottom sheet
+      initialChildSize: 0.6.h,
+      minChildSize: 0.2,
+      maxChildSize: 0.9,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
           decoration: const BoxDecoration(
@@ -23,27 +35,30 @@ class ProductDetailsBottomSheet extends StatelessWidget {
             child: ListView(
               controller: scrollController,
               children: [
-                Image.asset(
-                  'assets/images/orange.png',
-                  height: 200.h,
-                  width: double.infinity,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    '$image',
+                    height: 200.h,
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 ListTile(
-                  title: Text('Апельсины сладкий пакистанский',
+                  title: Text('$title',
                       style: Theme.of(context).textTheme.headlineLarge),
                 ),
                 ListTile(
-                    title: Text('86 с шт',
-                        style: Theme.of(context).textTheme.displayMedium)),
+                  title: Text('${removeTrailingZeros(price!)} с шт',
+                      style: Theme.of(context).textTheme.displayMedium),
+                ),
                 ListTile(
                   title: Text(
-                    'Cочный плод яблони, который употребляется в пищу в свежем и запеченном виде, служит сырьём в кулинарии и для приготовления напитков.',
+                    '$description',
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
+                SizedBox(height: 20.h),
                 SizedBox(
                   height: 54.h,
                   child: TextButton(

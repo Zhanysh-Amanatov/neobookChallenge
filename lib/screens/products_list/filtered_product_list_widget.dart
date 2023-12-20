@@ -1,12 +1,9 @@
-// // ignore_for_file: avoid_print
-// ignore_for_file: avoid_print
-
 /*External dependencies */
-import 'package:ecomarket/screens/products_list/product_card.dart';
 import 'package:flutter/material.dart';
 /*Local dependencies */
 import 'package:ecomarket/screens/data.dart';
 import 'package:ecomarket/screens/product_details_screen.dart';
+import 'package:ecomarket/screens/products_list/product_card.dart';
 
 class FilteredProductList extends StatelessWidget {
   const FilteredProductList({super.key});
@@ -17,7 +14,6 @@ class FilteredProductList extends StatelessWidget {
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
     String categoryName = args?['categoryName'] ?? 0;
-    print('Recieved Category Name: $categoryName');
     return FutureBuilder(
       future: getProducts(categoryName),
       builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
@@ -43,18 +39,21 @@ class FilteredProductList extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  child: SingleChildScrollView(
-                    child: ProductCard(
-                      image: '${snapshot.data![index].image}',
-                      title: '${snapshot.data![index].title}',
-                      price: '${snapshot.data![index].price}',
-                    ),
+                  child: ProductCard(
+                    image: '${snapshot.data![index].image}',
+                    title: '${snapshot.data![index].title}',
+                    price: '${snapshot.data![index].price}',
                   ),
                   onTap: () {
                     showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) {
-                          return const ProductDetailsBottomSheet();
+                          return ProductDetailsBottomSheet(
+                            image: '${snapshot.data![index].image}',
+                            title: '${snapshot.data![index].title}',
+                            price: '${snapshot.data![index].price}',
+                            description: '${snapshot.data![index].description}',
+                          );
                         },
                         isScrollControlled: true);
                   },
