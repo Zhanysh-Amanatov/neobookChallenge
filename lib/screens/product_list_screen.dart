@@ -18,10 +18,10 @@ class ProductList extends StatefulWidget {
 class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
-    final Map<String, dynamic>? args =
-        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+    // final Map<String, dynamic>? args =
+    // ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
-    String categoryName = args?['categoryName'] ?? 0;
+    // String categoryName = args?['categoryName'] ?? 0;
     // print('Recieved Category Name: $categoryName');
 
     return Scaffold(
@@ -29,7 +29,7 @@ class _ProductListState extends State<ProductList> {
         title:
             Text('Продукты', style: Theme.of(context).textTheme.headlineLarge),
       ),
-      body: Stack(
+      body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -39,7 +39,7 @@ class _ProductListState extends State<ProductList> {
                 SizedBox(height: 20.h),
                 const ProductSegmentedControlWidget(),
                 SizedBox(height: 20.h),
-                const Expanded(child: FilteredProductList())
+                const FilteredProductList()
               ],
             ),
           ),

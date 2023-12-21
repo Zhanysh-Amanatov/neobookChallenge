@@ -39,10 +39,13 @@ class FilteredProductList extends StatelessWidget {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  child: ProductCard(
-                    image: '${snapshot.data![index].image}',
-                    title: '${snapshot.data![index].title}',
-                    price: '${snapshot.data![index].price}',
+                  child: AspectRatio(
+                    aspectRatio: 16 / 39,
+                    child: ProductCard(
+                      image: '${snapshot.data![index].image}',
+                      title: '${snapshot.data![index].title}',
+                      price: '${snapshot.data![index].price}',
+                    ),
                   ),
                   onTap: () {
                     showModalBottomSheet(

@@ -19,7 +19,6 @@ class ProductCard extends StatelessWidget {
     return SingleChildScrollView(
       child: Card(
         semanticContainer: true,
-        // clipBehavior: Clip.antiAliasWithSaveLayer,
         child: Padding(
           padding: EdgeInsets.all(4.w),
           child: Column(
