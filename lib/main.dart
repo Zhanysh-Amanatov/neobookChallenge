@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
-import 'package:ecomarket/screens/cart_screen.dart';
-import 'package:ecomarket/screens/order_history_screen.dart';
-import 'package:ecomarket/screens/product_categories_screen.dart';
+import 'package:ecomarket/screens/cart/cart_screen.dart';
+import 'package:ecomarket/screens/order_history/order_history_screen.dart';
+import 'package:ecomarket/screens/home/product_categories_screen.dart';
 import 'package:ecomarket/screens/products_list/info_screen.dart';
 import 'package:ecomarket/screens/products_list/product_list_screen.dart';
 import 'package:ecomarket/theme.dart';

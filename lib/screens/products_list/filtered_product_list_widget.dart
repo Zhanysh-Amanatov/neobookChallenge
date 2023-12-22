@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 /*Local dependencies */
 import 'package:ecomarket/screens/data.dart';
-import 'package:ecomarket/screens/product_details_screen.dart';
+import 'package:ecomarket/screens/product/product_details_screen.dart';
 import 'package:ecomarket/screens/products_list/product_card.dart';
 
 class FilteredProductList extends StatelessWidget {

@@ -34,6 +34,25 @@ class Product {
   }
 }
 
+class Category {
+  int? id;
+  String? image;
+  String? name;
+  Category({
+    this.id,
+    this.image,
+    this.name,
+  });
+
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(
+      id: json['id'],
+      image: json['image'],
+      name: json['name'],
+    );
+  }
+}
+
 Future<List<Product>> getProducts(String categoryName) async {
   String url =
       'https://neobook.online/ecobak/product-list/?category_name=$categoryName';
@@ -53,6 +72,25 @@ Future<List<Product>> getProducts(String categoryName) async {
     }
   } catch (error) {
     print('Error in getProducts: $error');
+    throw Exception('Error: $error');
+  }
+}
+
+Future<List<Category>> getCategories() async {
+  String url = 'https://neobook.online/ecobak/product-category-list/';
+  final response = await http.get(Uri.parse(url));
+  try {
+    if (response.statusCode == 200) {
+      List<dynamic> responseData = json.decode(utf8.decode(response.bodyBytes));
+
+      List<Category> categories =
+          responseData.map((json) => Category.fromJson(json)).toList();
+      return categories;
+    } else {
+      throw Exception(
+          'Failed to fetch categories.Status code: ${response.statusCode}');
+    }
+  } catch (error) {
     throw Exception('Error: $error');
   }
 }

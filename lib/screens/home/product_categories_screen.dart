@@ -1,13 +1,13 @@
 // ignore_for_file: must_be_immutable
 /*External dependencies */
 import 'dart:convert';
-import 'package:ecomarket/screens/cart_screen.dart';
-import 'package:ecomarket/screens/order_history_screen.dart';
 import 'package:ecomarket/screens/products_list/info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:http/http.dart' as http;
 /*Local dependencies */
+import 'package:ecomarket/screens/cart/cart_screen.dart';
+import 'package:ecomarket/screens/order_history/order_history_screen.dart';
 
 class Category {
   int? id;
