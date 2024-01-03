@@ -1,8 +1,9 @@
 /*External dependencies */
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
-import 'package:ecomarket/screens/helpers.dart';
+import 'package:ecomarket/helpers.dart';
 
 class ProductDetailsBottomSheet extends StatelessWidget {
   final String? image;
@@ -37,8 +38,8 @@ class ProductDetailsBottomSheet extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    '$image',
+                  child: CachedNetworkImage(
+                    imageUrl: '$image',
                     height: 200.h,
                     width: double.infinity,
                     fit: BoxFit.fill,

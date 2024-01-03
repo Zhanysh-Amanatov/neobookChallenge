@@ -4,17 +4,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 /*Local dependencies */
-import 'package:ecomarket/screens/products_list/filtered_product_list_widget.dart';
-import 'package:ecomarket/screens/products_list/product_segmented_control_widget.dart';
+import 'package:ecomarket/route/routes.dart';
+import 'package:ecomarket/ui/products_list/filtered_product_list_widget.dart';
 
-class ProductList extends StatefulWidget {
-  const ProductList({super.key});
+class ProductListScreen extends StatefulWidget {
+  const ProductListScreen({super.key});
 
   @override
-  State<ProductList> createState() => _ProductListState();
+  State<ProductListScreen> createState() => _ProductListScreenState();
 }
 
-class _ProductListState extends State<ProductList> {
+class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +42,14 @@ class _ProductListState extends State<ProductList> {
                       MaterialStateProperty.all(const ContinuousRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(36)),
                   )),
+                  onTap: () {
+                    Navigator.pushNamed(context, productSearchBarRoute);
+                  },
                 ),
-                SizedBox(height: 20.h),
-                const ProductSegmentedControlWidget(),
+                // const ProductSegmentedControlWidget(),
                 SizedBox(height: 20.h),
                 const Expanded(
-                  child: FilteredProductList(),
+                  child: FilteredProductListScreen(),
                 )
               ],
             ),
